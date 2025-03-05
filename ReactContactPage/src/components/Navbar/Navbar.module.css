@@ -1,0 +1,19 @@
+.navigationbar {
+    display: flex;
+    height: 72px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar_logo {
+    margin-top: 4px;
+    margin-left: 91px;
+}
+
+.navbar_ul {
+    display: flex;
+    font-weight: 500;
+    gap: 24px;
+    list-style: none;
+    margin-right: 10px;
+}
