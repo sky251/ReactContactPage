@@ -2,7 +2,6 @@ import styles from "./Navbar.module.css";
 import "../../App.css"
 
 const Navbar = () => {
-  console.log(styles);
   
   return (
     <nav className={`${styles.navigationbar} container`}>

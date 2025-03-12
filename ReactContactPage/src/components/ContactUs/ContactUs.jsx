@@ -2,8 +2,19 @@ import { Button } from "../Button/Button";
 import styles from "./ContactUs.module.css";
 import { MdMessage, MdMail } from "react-icons/md";
 import { IoCall } from "react-icons/io5";
+import { useState } from "react";
 
-const ContactUs = () => {
+export const ContactUs = () => {
+
+  const [name,setName] = useState("")
+  const [email,setEmail] = useState("")
+  const [text,setText]= useState("")
+  
+  const handleSubmitButton = (e) => {
+    e.preventDefault()
+    console.log(name +" "+ email+" "+text)
+  };
+
   return (
     <section className={` container ${styles.contact_header_section} `}>
       <h1>CONTACT US</h1>
@@ -29,16 +40,18 @@ const ContactUs = () => {
             icon={<MdMail fontSize="22px" />}
           />
 
-          <form className={styles.form_section}>
+          <form onSubmit={handleSubmitButton} className={styles.form_section}>
             <div className={styles.form_control}>
               <label htmlFor="name">Name</label>
-              <input type="text" name="name" placeholder="Enter your name..." />
+              <input type="text" onChange={(e)=>setName(e.target.value)} value={name} name="name" placeholder="Enter your name..." />
             </div>
 
             <div className={styles.form_control}>
               <label htmlFor="email">Email</label>
               <input
                 type="email"
+                value={email}
+                onChange={(e)=>setEmail(e.target.value)}
                 name="email"
                 placeholder="Enter your email..."
               />
@@ -48,6 +61,8 @@ const ContactUs = () => {
               <label htmlFor="feedback">Feedback</label>
               <textarea
                 rows="5"
+                value={text}
+                onChange={(e)=> setText(e.target.value)}
                 name="feedback"
                 placeholder="Enter your feedback..."
               />
@@ -62,5 +77,3 @@ const ContactUs = () => {
     </section>
   );
 };
-
-export default ContactUs;
